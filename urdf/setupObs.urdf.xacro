@@ -1,0 +1,39 @@
+<robot name="box-setup"
+    xmlns:xacro="https://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find ros_basics_models)/urdf/utils/materials.xacro" />
+    <xacro:include filename="$(find ros_basics_models)/urdf/utils/inertia.xacro" />
+
+    <link name="world"/>
+
+    <joint name="world_joint" type="fixed">
+        <parent link="world"/>
+        <child link="setup"/>
+    </joint>
+
+    <link name="setup">
+        <visual>
+            <origin xyz="0.2 0.03 0" rpy = "0 0 0.3"/>
+            <geometry>
+                <box size="0.031 0.063 0.095"/>
+            </geometry>
+            <material name="brown"/>
+        </visual>
+        <collision>
+            <origin xyz="0.2 0.03 0" rpy = "0 0 0.3"/>
+            <geometry>
+                <box size="0.031 0.063 0.095"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1"/>
+            <xacro:box_inertia mass="0.1" x="0.031" y="0.063" z="0.095" />
+        </inertial>
+    </link>
+
+
+    <gazebo reference="setup">
+        <material>Gazebo/WoodFloor</material>
+    </gazebo>
+
+</robot>
