@@ -20,17 +20,17 @@
                     <box size="${sensor_width} ${sensor_length} ${sensor_height}" />
                 </geometry>
                 <material name="black" />
-                <origin rpy="0 0 0" xyz="0 0 0" />
+                <origin rpy="${originrpy}" xyz="${originxyz}" />
             </visual>
             <collision>
                 <geometry>
                     <box size="0 0 0" />
                 </geometry>
-                <origin rpy="0 0 0" xyz="0 0 0" />
+                <origin rpy="${originrpy}" xyz="${originxyz}" />
             </collision>
             <inertial>
                 <mass value="${mass}" />
-                <origin rpy="0 0 0" xyz="0 0 0" />
+                <origin rpy="${originrpy}" xyz="${originxyz}" />
                 <xacro:box_inertia mass="${mass}" x="${sensor_length}" y="${sensor_width}" z="${sensor_height}" />
             </inertial>
         </link>
